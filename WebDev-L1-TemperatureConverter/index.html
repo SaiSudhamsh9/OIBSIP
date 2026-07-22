@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Temperature Calculator</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.main{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.container{
+    width:420px;
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+    text-align:center;
+}
+
+h2{
+    color:#333;
+    margin-bottom:25px;
+}
+
+label{
+    font-size:18px;
+    font-weight:bold;
+    color:#444;
+}
+
+input,
+select{
+    width:100%;
+    margin-top:8px;
+    margin-bottom:20px;
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+    transition:.3s;
+}
+
+input:focus,
+select:focus{
+    border-color:#667eea;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#667eea;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#4d63d2;
+}
+
+.output{
+    width:420px;
+    margin-top:25px;
+}
+
+.output p{
+    background:white;
+    padding:15px;
+    margin:12px 0;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    color:#333;
+    text-align:left;
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+    transition:.3s;
+}
+
+.output p:hover{
+    transform:translateY(-3px);
+}
+
+#c1{
+    border-left:6px solid #3498db;
+}
+
+#f1{
+    border-left:6px solid #ff9800;
+}
+
+#k1{
+    border-left:6px solid #2ecc71;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="main">
+
+<div class="container">
+
+<h2>🌡 Temperature Calculator</h2>
+
+<label>Enter Temperature</label>
+
+<input type="number" id="cel" placeholder="Enter temperature">
+
+<label>Choose Unit</label>
+
+<select id="chs">
+    <option value="c">Celsius</option>
+    <option value="f">Fahrenheit</option>
+    <option value="k">Kelvin</option>
+</select>
+
+<button onclick="calsi()">Convert</button>
+
+</div>
+
+<div class="output">
+    <p id="c1"></p>
+    <p id="f1"></p>
+    <p id="k1"></p>
+</div>
+
+</div>
+
+<script>
+
+function calsi(){
+
+let choice=document.getElementById("chs").value;
+let temp=Number(document.getElementById("cel").value);
+
+let celcius,fahrenheit,kelvin;
+
+if(choice=="c"){
+    celcius=temp;
+    fahrenheit=(celcius*9/5)+32;
+    kelvin=celcius+273.15;
+}
+
+if(choice=="f"){
+    fahrenheit=temp;
+    celcius=(fahrenheit-32)*5/9;
+    kelvin=celcius+273.15;
+}
+
+if(choice=="k"){
+    kelvin=temp;
+    celcius=kelvin-273.15;
+    fahrenheit=(celcius*9/5)+32;
+}
+
+document.getElementById("c1").innerHTML="🌡 Celsius : "+celcius.toFixed(2)+" °C";
+document.getElementById("f1").innerHTML="🔥 Fahrenheit : "+fahrenheit.toFixed(2)+" °F";
+document.getElementById("k1").innerHTML="❄ Kelvin : "+kelvin.toFixed(2)+" K";
+
+}
+
+</script>
+
+</body>
+</html>
