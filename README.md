@@ -1,4 +1,5 @@
-# 🌐 Oasis Infobyte Internship - Web Development & Designing (Level 1)
+# 🌐 Oasis Infobyte Internship - Web Development & Designing 
+(Level 1)
 
 Welcome to my Oasis Infobyte Internship repository. This repository contains all the projects I completed as part of the **Web Development & Designing Internship (Level 1)**.
 
